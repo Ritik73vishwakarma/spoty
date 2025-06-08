@@ -1,0 +1,129 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Home page</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <link rel="stylesheet" href="home.css">  
+</head>  
+<body>  
+    <div id="riri"> 
+        <img  id="log" src="https://th.bing.com/th/id/OIP.bZboBNsV3fh4gkdcivXRygAAAA?cb=iwc2&rs=1&pid=ImgDetMain" alt=""> 
+            <ul>  
+                <li><a href="index.html">Back to login</a></li>  
+               
+            </ul>  
+        </nav>  
+    </div>  
+    <div id="backg">   
+        <div class="main_contenr">  
+            <div class="contenr">  
+                <h2>Spotify Songs</h2>  
+                <h3>Ritik</h3>  
+            </div>  
+            <div class="img">  
+                <img id="iim" src="back.jpg" alt="Ritik" />  
+            </div>  
+            <audio id="rr" src="path/to/your/song.mp3"></audio>  
+            <div class="controlr">  
+                <i class="fa-solid fa-backward" title="back" style="cursor:pointer" id="back"></i>  
+                <i class="fa-solid fa-play" title="play" style="cursor:pointer" id="play"></i>  
+                <i class="fa-solid fa-forward" title="next" style="cursor:pointer" id="next"></i>  
+                <input type="range" id="slider" value="0" min="0" max="100" step="1" />    
+            </div> 
+            <span>Volume</span>  
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)"> 
+        </div>  
+    </div>  
+    <script> 
+        function setVolume(value) {  
+            music.volume = value; // Set audio volume  
+        }
+        const playButton = document.getElementById("play");  
+        const music = document.getElementById("rr");  
+        const img = document.getElementById("iim");  
+        const slider = document.getElementById("slider");  
+        
+        let isPlaying = false;  
+        let currentSongIndex = 0;
+        let currentSongslength=0;
+        console.log(currentSongslength) ;
+        console.log(currentSongIndex) ;
+
+        const songs = [ 
+            { songname: "song3.m4a",imm:"photo.png"}, 
+            { songname: "song2.mp3",imm:"photo.png"},  
+           { songname: "song5.mp3",imm:"Scorpio.jpg" },  
+            { songname: "song6.mp3",imm:"ritikk.jpg" },
+             
+        ];  
+
+        // Function to play a song  
+        const playSong = (index) => {  
+            music.src = songs[index].songname;
+            img.src=songs[index].imm;
+            // Set the song source  
+            music.play();
+            // Play the song  
+             // Change icon to pause  
+            isPlaying = true; 
+            playButton.classList.replace("fa-pause", "fa-play");
+           
+        };  
+
+        // Initialize with the first song  
+        playSong(currentSongIndex);  
+
+        // Play/Pause functionality  
+        playButton.addEventListener("click", () => {  
+            if (isPlaying) {  
+                music.pause();  
+                playButton.classList.replace("fa-pause", "fa-play");
+                img.classList.remove("anime")  
+            } else {  
+                music.play();  
+                playButton.classList.replace("fa-play", "fa-pause");
+                img.classList.add("anime") 
+                 
+            }  
+            isPlaying = !isPlaying; // Toggle the play state  
+        });   
+
+        // Update slider max value when audio is loaded  
+        music.addEventListener("loadedmetadata", () => {  
+            slider.max = music.duration; // Set slider max to audio duration  
+        }); 
+        console.log(music.duration) 
+
+        // Update slider value as audio plays  
+        music.addEventListener("timeupdate", () => {  
+            slider.value = music.currentTime; // Update slider to current audio time  
+        });  
+
+        // Seek functionality with slider  
+        slider.addEventListener("input", () => {  
+            music.currentTime = slider.value; // Update audio currentTime with slider value  
+        });  
+
+        // Next song functionality  
+        document.getElementById("next").addEventListener("click", () => {  
+            currentSongIndex = (currentSongIndex + 1)%songs.length;
+            console.log(songs.length) 
+            console.log(currentSongIndex)// Loop to first song  
+            playSong(currentSongIndex); // Play next song  
+        });  
+
+        // Back song functionality  
+        document.getElementById("back").addEventListener("click", () => {  
+            currentSongIndex = (currentSongsIndex - 1 + songs.length) % songs.length;
+             // Loop to last song if at beginning  
+            playSong(currentSongIndex); // Play previous song  
+        }); 
+        
+        abc = 5%3;
+        console.log(abc)
+
+    </script>   
+</body>  
+</html>  

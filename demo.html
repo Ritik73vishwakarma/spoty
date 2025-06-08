@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <audio id="myAudio" >  
+        <source src="C:\Users\Ritik\Videos\___क्या_खेल_इश्क_ने_खेला_है_क्या_गम_का_लगा_ये_मेला_है_❤️___(128k).m4a">  
+        Your browser does not support the audio element.  
+    </audio>  
+    <br>  
+    <label for="volumeSlider">Volume:</label> 
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)"> 
+    <button onclick="rr">play</button>
+      
+    <br>  
+    <label for="speedSlider">Speed:</label>  
+    <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1" onchange="setSpeed(this.value)">  
+    <script>
+        var audio = document.getElementById("myAudio");  
+
+// Function to set volume  
+function setVolume(value) {  
+    audio.volume = value; // Set audio volume  
+}  
+
+// Function to set speed  
+function setSpeed(value) {  
+    audio.playbackRate = value; // Set audio speed  
+}  
+function rr(){
+    audio.play
+} ;   
+</script>
+</body>
+</html>

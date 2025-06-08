@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify login form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <header id="he"> 
+        <img src="https://th.bing.com/th?id=OIP.TZNF77VcLj9DCwRE4Zq2BAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt=" spotify" width="40px" height="40px" border-radius="50%"> 
+        <h3>LIfe milaye music music milaye life</h3>  
+    </header>  
+
+    <div class="paragraph">
+        <p>Kya aap jaante hain ki Spotify par playlists sirf <br>gaane nahi,balki aapke emotions aur moments <br>ko bhi capture karti hain? “Chill Vibes”se <br> lekar“Power Workout” tak, har playlist <br> aapko us moment ki yaad dilata hai <br> jab aapne us gaane ko suna tha</p>
+    </div>
+<div id="main-contenr">
+    <h1>welcome to spotify</h1>
+    <div id="form">
+        <div>
+            <div id="username"> 
+                <div id="img">
+               <form id="loginForm" action="/login" method="POST">
+                <label for="Username">Username:</label>
+                <input name="username" id="u" type="text" placeholder="username" required><br>
+                <label for="password">Password:</label>
+                <input name="password" id="r" type="password" placeholder="Password" required><br>
+                <button type="submit">Login</button>
+                </form>
+                    <div id="fe">
+                        <a href="https://www.facebook.com/?ref=homescreenpwa">singup</a>   facebook
+                        <a href="account.html"> ragistration</a>
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+        </div>
+           
+    </div>
+</div>
+<script>
+    function rr() {  
+        const username = document.getElementById("u").value;  
+        const password = document.getElementById("r").value;  
+         
+    
+        const user= "ritik";
+        const pass="123ritik"
+        if (username===user&&password===pass){
+            window.location.href = "home.html"; 
+        }else if(username===""&&password===""){
+            alert("Please Inter password and username")
+        }
+
+        else{
+            alert("please inter corect password");
+        } 
+        
+    
+        // Input fields ko clear karne ke liye value property ka istemal  
+        document.getElementById("u").value = "";  // Username field ko clear karein  
+        document.getElementById("r").value = "";  // Password field ko clear karein  
+    }          
+</script>
+</body>
+</html>
